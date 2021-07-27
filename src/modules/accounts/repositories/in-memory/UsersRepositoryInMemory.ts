@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable class-methods-use-this */
 import ICreateUserDTO from '../../dtos/ICreateUserDTO';
-import User from '../../entities/User';
+import User from '../../infra/typeorm/entities/User';
 import IUsersRepository from '../IUsersRepository';
 
 export default class UsersRepositoryInMemory implements IUsersRepository {
