@@ -20,7 +20,7 @@ export default class CreateUserUseCase {
     password,
     driver_license,
   }: ICreateUserDTO): Promise<void> {
-    const userAlreadyExits = this.usersRepository.findByEmail(email);
+    const userAlreadyExits = await this.usersRepository.findByEmail(email);
 
     if (userAlreadyExits) {
       throw new AppError('User already exists');
