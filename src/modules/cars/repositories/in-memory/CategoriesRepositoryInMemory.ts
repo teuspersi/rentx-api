@@ -5,7 +5,7 @@ import { Category } from '../../entities/Category';
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from '../ICategoriesRespository';
+} from '../ICategoriesRepository';
 
 export default class CategoriesRepositoryInMemory
   implements ICategoriesRepository

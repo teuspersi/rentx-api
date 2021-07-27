@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import { inject, injectable } from 'tsyringe';
-import AppError from '../../../../errors/AppError';
-import { ISpecificationsRepository } from '../../repositories/ISpecificationsRespository';
+import AppError from '@errors/AppError';
+import { ISpecificationsRepository } from '@modules/cars/repositories/ISpecificationsRespository';
 
 interface IRequest {
   name: string;

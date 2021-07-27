@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import { inject, injectable } from 'tsyringe';
-import IUsersRepository from '../../repositories/IUsersRepository';
-import { deleteFile } from '../../../../utils/file';
+import IUsersRepository from '@modules/accounts/repositories/IUsersRepository';
+import { deleteFile } from '@utils/file';
 
 /* eslint-disable camelcase */
 interface IRequest {
