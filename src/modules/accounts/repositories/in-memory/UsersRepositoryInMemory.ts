@@ -2,8 +2,8 @@
 /* eslint-disable camelcase */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable class-methods-use-this */
+import User from '@modules/accounts/infra/typeorm/entities/User';
 import ICreateUserDTO from '../../dtos/ICreateUserDTO';
-import User from '../../infra/typeorm/entities/User';
 import IUsersRepository from '../IUsersRepository';
 
 export default class UsersRepositoryInMemory implements IUsersRepository {
