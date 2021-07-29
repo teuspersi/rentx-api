@@ -9,7 +9,7 @@ interface IPayload {
   sub: string;
 }
 
-export default async function ensureAuthentication(
+export default async function ensureAuthenticated(
   request: Request,
   response: Response,
   next: NextFunction,
