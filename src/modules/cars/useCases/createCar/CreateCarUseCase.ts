@@ -16,10 +16,10 @@ interface IRequest {
   category_id: string;
 }
 
-// @injectable()
+@injectable()
 export default class CreateCarUseCase {
   constructor(
-    // @inject('CarsRepository')
+    @inject('CarsRepository')
     private carsRepository: ICarsRepository,
   ) {}
 
