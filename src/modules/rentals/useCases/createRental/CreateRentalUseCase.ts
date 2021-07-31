@@ -2,6 +2,7 @@
 /* eslint-disable camelcase */
 import Rental from '@modules/rentals/infra/typeorm/entities/Rental';
 import IRentalsRepository from '@modules/rentals/repositories/IRentalsRepository';
+import IDateProvider from '@shared/container/providers/DateProvider/IDateProvider';
 import AppError from '@shared/errors/AppError';
 
 /* eslint-disable class-methods-use-this */
@@ -12,13 +13,18 @@ interface IRequest {
 }
 
 export default class CreateRentalUseCase {
-  constructor(private rentalsRepository: IRentalsRepository) {}
+  constructor(
+    private rentalsRepository: IRentalsRepository,
+    private dateProvider: IDateProvider,
+  ) {}
 
   async execute({
     user_id,
     car_id,
     expected_return_date,
   }: IRequest): Promise<Rental> {
+    const minimumRentalTime = 24;
+
     const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(
       car_id,
     );
@@ -33,6 +39,17 @@ export default class CreateRentalUseCase {
 
     if (rentalOpenToUser) {
       throw new AppError("There's a rental in progress for this user");
+    }
+
+    const dateNow = this.dateProvider.dateNow();
+
+    const compare = this.dateProvider.compareInHours(
+      dateNow,
+      expected_return_date,
+    );
+
+    if (compare < minimumRentalTime) {
+      throw new AppError('Invalid return date');
     }
 
     const rental = await this.rentalsRepository.create({
