@@ -10,7 +10,9 @@ let connection: Connection;
 describe('Create Category Controller', () => {
   beforeAll(async () => {
     connection = await createConnection();
+  });
 
+  beforeEach(async () => {
     await connection.runMigrations();
 
     const id = uuidV4();
