@@ -3,7 +3,6 @@ import UsersTokensRepositoryInMemory from '@modules/accounts/repositories/in-mem
 import DayjsDateProvider from '@shared/container/providers/DateProvider/implementations/DayjsDateProvider';
 import MailProviderInMemory from '@shared/container/providers/MailProvider/in-memory/MailProviderInMemory';
 import AppError from '@shared/errors/AppError';
-import { AST } from 'handlebars';
 import SendForgotPasswordMailUseCase from './SendForgotPasswordMailUseCase';
 
 let sendForgotPasswordMailUseCase: SendForgotPasswordMailUseCase;
