@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-useless-constructor */
 import { compare } from 'bcryptjs';
-import { injectable, inject, injectWithTransform } from 'tsyringe';
+import { injectable, inject } from 'tsyringe';
 import { sign } from 'jsonwebtoken';
 
 import AppError from '@shared/errors/AppError';
