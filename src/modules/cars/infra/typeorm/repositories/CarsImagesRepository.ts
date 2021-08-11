@@ -1,10 +1,13 @@
 /* eslint-disable camelcase */
 import ICarsImagesRepository from '@modules/cars/repositories/ICarsImagesRepository';
+import { ICarsRepository } from '@modules/cars/repositories/ICarsRepository';
 import { getRepository, Repository } from 'typeorm';
 import CarImage from '../entities/CarImage';
 
 export default class CarsImageRepository implements ICarsImagesRepository {
   private repository: Repository<CarImage>;
+
+  private carsRepository: ICarsRepository;
 
   constructor() {
     this.repository = getRepository(CarImage);
