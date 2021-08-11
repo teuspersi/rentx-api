@@ -1,8 +1,6 @@
 # Levantamento de requisitos
 
 ## Cadastro de carro
-
-teste
  
 **RF**
 
