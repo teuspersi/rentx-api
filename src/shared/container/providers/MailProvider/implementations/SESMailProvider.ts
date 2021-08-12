@@ -30,7 +30,7 @@ export default class SESMailProvider implements IMailProvider {
 
     await this.client.sendMail({
       to,
-      from: 'Rentx <noreplay@rentx.com.br>',
+      from: 'Rentx <teuspersi@geotecblog.online>',
       subject,
       html: templateHTML,
     });
