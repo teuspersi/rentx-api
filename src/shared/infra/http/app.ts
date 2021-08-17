@@ -8,6 +8,7 @@ import upload from '@config/upload';
 
 import AppError from '@shared/errors/AppError';
 import cors from 'cors';
+import rateLimiter from '@shared/infra/http/middlewares/rateLimiter';
 import createConnection from '../typeorm';
 import '@shared/container';
 
@@ -16,6 +17,8 @@ import swaggerFile from '../../../swagger.json';
 
 createConnection();
 const app = express();
+
+app.use(rateLimiter);
 
 app.use(express.json());
 
